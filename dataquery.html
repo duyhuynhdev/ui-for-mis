@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>BI Tool</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- <link rel="icon" sizes="192x192" href="images/android-desktop.png"> -->
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <!-- <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png"> -->
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- <link rel="shortcut icon" href="images/favicon.png"> -->
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./mdl/material.min.css">
+    <link rel="stylesheet" href="./datatable/datatables.min.css">
+    <!--getmdl-select-->   
+    <link rel="stylesheet" href="./mdl/getmdl-select.min.css">
+    <link rel="stylesheet" href="styles.css">
+   
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Data query</span>
+          <div class="mdl-layout-spacer"></div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item">About</li>
+            <li class="mdl-menu__item">Contact</li>
+            <li class="mdl-menu__item">More products</li>
+          </ul>
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+          <i class="material-icons md-36">supervised_user_circle</i>
+          <div class="demo-avatar-dropdown">
+            <span>エム・アイ・エス</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <li class="mdl-menu__item">Profile</li>
+              <li class="mdl-menu__item">Logout</li>
+            </ul>
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link" href="./index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link" href="./dashboard.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">insert_chart_outlined</i>Dashboard</a>
+          <a class="mdl-navigation__link" href="./pivot.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">web</i>Pivot table</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="bi-grid mdl-grid demo-content">
+          
+          <div class="bi-table mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-grid " style="height: 800px">
+              <div class="bi-table-content__dataset">
+                <table id="dataTable" style="" >
+                <thead>
+                  <tr>
+                      <th class="mdl-data-table__cell--non-numeric sort-key">Name</th>
+                      <th class="mdl-data-table__cell--non-numeric sort-key">Position</th>
+                      <th class="mdl-data-table__cell--non-numeric sort-key">Office</th>
+                      <th class="mdl-data-table__cell--non-numeric sort-key">Age</th>
+                      <th class="mdl-data-table__cell--non-numeric sort-key">Start date</th>
+                      <th class="mdl-data-table__cell--non-numeric sort-key">Salary</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Tiger Nixon</td>
+                      <td class="mdl-data-table__cell--non-numeric">System Architect</td>
+                      <td class="mdl-data-table__cell--non-numeric">Edinburgh</td>
+                      <td class="mdl-data-table__cell--non-numeric">61</td>
+                      <td class="mdl-data-table__cell--non-numeric">2011/04/25</td>
+                      <td class="mdl-data-table__cell--non-numeric">$320,800</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Garrett Winters</td>
+                      <td class="mdl-data-table__cell--non-numeric">Accountant</td>
+                      <td class="mdl-data-table__cell--non-numeric">Tokyo</td>
+                      <td class="mdl-data-table__cell--non-numeric">63</td>
+                      <td class="mdl-data-table__cell--non-numeric">2011/07/25</td>
+                      <td class="mdl-data-table__cell--non-numeric">$170,750</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Ashton Cox</td>
+                      <td class="mdl-data-table__cell--non-numeric">Junior Technical Author</td>
+                      <td class="mdl-data-table__cell--non-numeric">San Francisco</td>
+                      <td class="mdl-data-table__cell--non-numeric">66</td>
+                      <td class="mdl-data-table__cell--non-numeric">2009/01/12</td>
+                      <td class="mdl-data-table__cell--non-numeric">$86,000</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Cedric Kelly</td>
+                      <td class="mdl-data-table__cell--non-numeric">Senior Javascript Developer</td>
+                      <td class="mdl-data-table__cell--non-numeric">Edinburgh</td>
+                      <td class="mdl-data-table__cell--non-numeric">22</td>
+                      <td class="mdl-data-table__cell--non-numeric">2012/03/29</td>
+                      <td class="mdl-data-table__cell--non-numeric">$433,060</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Airi Satou</td>
+                      <td class="mdl-data-table__cell--non-numeric">Accountant</td>
+                      <td class="mdl-data-table__cell--non-numeric">Tokyo</td>
+                      <td class="mdl-data-table__cell--non-numeric">33</td>
+                      <td class="mdl-data-table__cell--non-numeric">2008/11/28</td>
+                      <td class="mdl-data-table__cell--non-numeric">$162,700</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Brielle Williamson</td>
+                      <td class="mdl-data-table__cell--non-numeric">Integration Specialist</td>
+                      <td class="mdl-data-table__cell--non-numeric">New York</td>
+                      <td class="mdl-data-table__cell--non-numeric">61</td>
+                      <td class="mdl-data-table__cell--non-numeric">2012/12/02</td>
+                      <td class="mdl-data-table__cell--non-numeric">$372,000</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Herrod Chandler</td>
+                      <td class="mdl-data-table__cell--non-numeric">Sales Assistant</td>
+                      <td class="mdl-data-table__cell--non-numeric">San Francisco</td>
+                      <td class="mdl-data-table__cell--non-numeric">59</td>
+                      <td class="mdl-data-table__cell--non-numeric">2012/08/06</td>
+                      <td class="mdl-data-table__cell--non-numeric">$137,500</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Rhona Davidson</td>
+                      <td class="mdl-data-table__cell--non-numeric">Integration Specialist</td>
+                      <td class="mdl-data-table__cell--non-numeric">Tokyo</td>
+                      <td class="mdl-data-table__cell--non-numeric">55</td>
+                      <td class="mdl-data-table__cell--non-numeric">2010/10/14</td>
+                      <td class="mdl-data-table__cell--non-numeric">$327,900</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Colleen Hurst</td>
+                      <td class="mdl-data-table__cell--non-numeric">Javascript Developer</td>
+                      <td class="mdl-data-table__cell--non-numeric">San Francisco</td>
+                      <td class="mdl-data-table__cell--non-numeric">39</td>
+                      <td class="mdl-data-table__cell--non-numeric">2009/09/15</td>
+                      <td class="mdl-data-table__cell--non-numeric">$205,500</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Sonya Frost</td>
+                      <td class="mdl-data-table__cell--non-numeric">Software Engineer</td>
+                      <td class="mdl-data-table__cell--non-numeric">Edinburgh</td>
+                      <td class="mdl-data-table__cell--non-numeric">23</td>
+                      <td class="mdl-data-table__cell--non-numeric">2008/12/13</td>
+                      <td class="mdl-data-table__cell--non-numeric">$103,600</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Jena Gaines</td>
+                      <td class="mdl-data-table__cell--non-numeric">Office Manager</td>
+                      <td class="mdl-data-table__cell--non-numeric">London</td>
+                      <td class="mdl-data-table__cell--non-numeric">30</td>
+                      <td class="mdl-data-table__cell--non-numeric">2008/12/19</td>
+                      <td class="mdl-data-table__cell--non-numeric">$90,560</td>
+                  </tr>
+                  <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Quinn Flynn</td>
+                      <td class="mdl-data-table__cell--non-numeric">Support Lead</td>
+                      <td class="mdl-data-table__cell--non-numeric">Edinburgh</td>
+                      <td class="mdl-data-table__cell--non-numeric">22</td>
+                      <td class="mdl-data-table__cell--non-numeric">2013/03/03</td>
+                      <td class="mdl-data-table__cell--non-numeric">$342,000</td>
+                  </tr>
+
+                </tbody>
+                </table>
+              </div>
+                <div id="export-menu" class="bi-table-content__dataset-action">
+                   
+                   
+              </div>
+          </div>
+          <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid"  style="justify-content: center !important" >
+            <form>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--12-col">
+                  <input type="text" value="" class="mdl-textfield__input" id="sample4" readonly>
+                  <input type="hidden" value="" name="sample4">
+                  <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                  <label for="sample4" class="mdl-textfield__label">Data nodes</label>
+                  <ul for="sample4" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                      <li class="mdl-menu__item" data-val="DEU">Sale data</li>
+                      <li class="mdl-menu__item" data-val="BLR">Product data</li>
+                  </ul>
+              </div>
+            </form>
+            <div class="bi-tabs mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+              <div class="mdl-tabs__tab-bar">
+                  <a href="#select-panel" class="mdl-tabs__tab is-active">Select</a>
+                  <a href="#condition-panel" class="mdl-tabs__tab">Condition</a>
+                  <a href="#aggregation-panel" class="mdl-tabs__tab">Method</a>
+              </div>
+                <!-- SELECT -->
+              <div class=" mdl-tabs__panel is-active" id="select-panel">
+              <div class="bi-select__check_list">
+               <ul class="demo-list-control mdl-list">
+                  <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                      All
+                    </span>
+                    <span class="mdl-list__item-secondary-action">
+                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckAll">
+                        <input type="checkbox" id="ckAll" class="mdl-checkbox__input" checked />
+                      </label>
+                    </span>
+                  </li>
+                  <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                      Name
+                    </span>
+                    <span class="mdl-list__item-secondary-action">
+                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
+                        <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
+                      </label>
+                    </span>
+                  </li>
+                   <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                      Position
+                    </span>
+                    <span class="mdl-list__item-secondary-action">
+                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
+                        <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
+                      </label>
+                    </span>
+                  </li>
+                   <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                      Office
+                    </span>
+                    <span class="mdl-list__item-secondary-action">
+                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
+                        <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
+                      </label>
+                    </span>
+                </ul>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                  <input type="text" value="" class="mdl-textfield__input" id="sample4" readonly>
+                  <input type="hidden" value="" name="sample4">
+                  <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                  <label for="sample4" class="mdl-textfield__label">Choose get function</label>
+                  <ul for="sample4" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                      <li class="mdl-menu__item" data-val="DEU">All</li>
+                      <li class="mdl-menu__item" data-val="BLR">From top</li>
+                      <li class="mdl-menu__item" data-val="BLR">From bottom</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-cell--4-col">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+                <label class="mdl-textfield__label" for="sample2">Number...</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+              </div>
+              <!-- CONDITION -->
+              <div class="mdl-tabs__panel" id="condition-panel">
+                <ul>
+                  <li>Tywin</li>
+                  <li>Cersei</li>
+                  <li>Jamie</li>
+                  <li>Tyrion</li>
+                </ul>
+              </div>
+              <!-- AGGREGATION -->
+              <div class="mdl-tabs__panel" id="aggregation-panel">
+                <ul>
+                  <li>Viserys</li>
+                  <li>Daenerys</li>
+                </ul>
+              </div>
+              
+            </div>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Fetch data</button>
+          </div>
+        </div>
+      </main>
+    </div>
+      
+      
+     
+    <!-- SCRIPT -->
+    <script src="./jquery-3.3.1.min.js"></script>
+    <script src="./mdl/material.min.js"></script>
+    <script src="./datatable/datatables.min.js"></script>
+    <script defer src="./mdl/getmdl-select.min.js"></script>
+    <script src="./custom.js"></script>
+    
+  </body>
+</html>
