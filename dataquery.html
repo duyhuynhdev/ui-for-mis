@@ -75,7 +75,7 @@
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="bi-grid mdl-grid demo-content">
-          
+          <!-- TABLE -->
           <div class="bi-table mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-grid " style="height: 800px">
               <div class="bi-table-content__dataset">
                 <table id="dataTable" style="" >
@@ -195,106 +195,279 @@
                    
               </div>
           </div>
-          <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid"  style="justify-content: center !important" >
-            <form>
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--12-col">
-                  <input type="text" value="" class="mdl-textfield__input" id="sample4" readonly>
-                  <input type="hidden" value="" name="sample4">
-                  <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-                  <label for="sample4" class="mdl-textfield__label">Data nodes</label>
-                  <ul for="sample4" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                      <li class="mdl-menu__item" data-val="DEU">Sale data</li>
-                      <li class="mdl-menu__item" data-val="BLR">Product data</li>
-                  </ul>
-              </div>
-            </form>
-            <div class="bi-tabs mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+          <!-- QUERY -->
+          <div class="bi-query mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid"  style="justify-content: center !important" >
+            <!-- HEADER -->
+            <div class="bi-query-header mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--12-col">
+                    <input type="text" value="" class="mdl-textfield__input" id="data-node" readonly>
+                    <input type="hidden" value="" name="data-node">
+                    <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                    <label for="data-node" class="mdl-textfield__label">Data nodes</label>
+                    <ul for="data-node" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                        <li class="mdl-menu__item" data-val="sale-data">Sale data</li>
+                        <li class="mdl-menu__item" data-val="product-data">Product data</li>
+                    </ul>
+            </div>
+            <!-- BODY -->
+            <div class="bi-query-body mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
               <div class="mdl-tabs__tab-bar">
                   <a href="#select-panel" class="mdl-tabs__tab is-active">Select</a>
-                  <a href="#condition-panel" class="mdl-tabs__tab">Condition</a>
+                  <a href="#condition-panel" class="mdl-tabs__tab">Filter</a>
                   <a href="#aggregation-panel" class="mdl-tabs__tab">Method</a>
               </div>
-                <!-- SELECT -->
-              <div class=" mdl-tabs__panel is-active" id="select-panel">
-              <div class="bi-select__check_list">
-               <ul class="demo-list-control mdl-list">
-                  <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                      All
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckAll">
-                        <input type="checkbox" id="ckAll" class="mdl-checkbox__input" checked />
-                      </label>
-                    </span>
-                  </li>
-                  <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                      Name
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
-                        <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
-                      </label>
-                    </span>
-                  </li>
-                   <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                      Position
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
-                        <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
-                      </label>
-                    </span>
-                  </li>
-                   <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                      Office
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
-                        <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
-                      </label>
-                    </span>
-                </ul>
+                    <!-- SELECT -->
+                  <div class=" mdl-tabs__panel is-active" id="select-panel">
+                  <div class="bi-select__check_list">
+                   <ul class="demo-list-control mdl-list">
+                      <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          All
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckAll">
+                            <input type="checkbox" id="ckAll" class="mdl-checkbox__input" checked />
+                          </label>
+                        </span>
+                      </li>
+                      <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          Name
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckName">
+                            <input type="checkbox" id="ckName" class="mdl-checkbox__input" checked />
+                          </label>
+                        </span>
+                      </li>
+                       <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          Position
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckPosition">
+                            <input type="checkbox" id="ckPosition" class="mdl-checkbox__input" checked />
+                          </label>
+                        </span>
+                      </li>
+                       <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          Office
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckOffice">
+                            <input type="checkbox" id="ckOffice" class="mdl-checkbox__input" checked />
+                          </label>
+                        </span>
+                      </li>
+                       <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          All
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckAll">
+                            <input type="checkbox" id="ckAll" class="mdl-checkbox__input" checked />
+                          </label>
+                        </span>
+                      </li>
+                      <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          Name
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckName">
+                            <input type="checkbox" id="ckName" class="mdl-checkbox__input" checked />
+                          </label>
+                        </span>
+                      </li>
+                       <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          Position
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckPosition">
+                            <input type="checkbox" id="ckPosition" class="mdl-checkbox__input" checked />
+                          </label>
+                        </span>
+                      </li>
+                       <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                          Office
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ckOffice">
+                            <input type="checkbox" id="ckOffice" class="mdl-checkbox__input" checked />
+                          </label>
+                        </span>
+                      </li>
+                    </ul>
+                    </div>
+
+                    <!-- GET FUNCTION -->
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--8-col">
+                      <input type="text" value="" class="mdl-textfield__input" id="get-fuction" readonly>
+                      <input type="hidden" value="" name="get-fuction">
+                      <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                      <label for="get-fuction" class="mdl-textfield__label">Choose get function</label>
+                      <ul for="get-fuction" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                          <li class="mdl-menu__item" data-val="all">All</li>
+                          <li class="mdl-menu__item" data-val="top">From top</li>
+                          <li class="mdl-menu__item" data-val="bottom">From bottom</li>
+                      </ul>
+                    </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--5-col">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="num-rows">
+                    <label class="mdl-textfield__label" for="num-rows">Num rows</label>
+                    <span class="mdl-textfield__error">Input is not a number!</span>
+                  </div>
+                  
+                  <!-- SORT FUNCTION -->
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--8-col">
+                    <input type="text" value="" class="mdl-textfield__input" id="sort-field" readonly>
+                    <input type="hidden" value="" name="sort-field">
+                    <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                    <label for="sort-field" class="mdl-textfield__label">Choose sort field</label>
+                    <ul for="sort-field" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                        <li class="mdl-menu__item" data-val="">(none)</li>
+                        <li class="mdl-menu__item" data-val="id">Id</li>
+                        <li class="mdl-menu__item" data-val="name">Name</li>
+                        <li class="mdl-menu__item" data-val="position">Position</li>
+                        <li class="mdl-menu__item" data-val="office">Office</li>
+                    </ul>
+                  </div>
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--5-col">
+                    <input type="text" value="" class="mdl-textfield__input" id="sort-key" readonly>
+                    <input type="hidden" value="" name="sort-key">
+                    <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                    <label for="sort-key" class="mdl-textfield__label">Sort key</label>
+                    <ul for="sort-key" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                        <li class="mdl-menu__item" data-val="asc">ASC</li>
+                        <li class="mdl-menu__item" data-val="desc">DESC</li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                  <input type="text" value="" class="mdl-textfield__input" id="sample4" readonly>
-                  <input type="hidden" value="" name="sample4">
-                  <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-                  <label for="sample4" class="mdl-textfield__label">Choose get function</label>
-                  <ul for="sample4" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                      <li class="mdl-menu__item" data-val="DEU">All</li>
-                      <li class="mdl-menu__item" data-val="BLR">From top</li>
-                      <li class="mdl-menu__item" data-val="BLR">From bottom</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="mdl-textfield mdl-js-textfield mdl-cell--4-col">
-                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
-                <label class="mdl-textfield__label" for="sample2">Number...</label>
-                <span class="mdl-textfield__error">Input is not a number!</span>
-              </div>
               <!-- CONDITION -->
               <div class="mdl-tabs__panel" id="condition-panel">
-                <ul>
-                  <li>Tywin</li>
-                  <li>Cersei</li>
-                  <li>Jamie</li>
-                  <li>Tyrion</li>
-                </ul>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="num-conds">
+                    <label class="mdl-textfield__label" for="num-conds" >Number of filter condition</label>
+                    <span class="mdl-textfield__error">Input is not a number!</span>
+                  </div>
+                <div class="bi-condition__group">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--5-col">
+                    <input type="text" value="" class="mdl-textfield__input" id="condition-field" readonly>
+                    <input type="hidden" value="" name="condition-field">
+                    <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                    <label for="condition-field" class="mdl-textfield__label">Select</label>
+                    <ul for="condition-field" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                        <li class="mdl-menu__item" data-val="name">Name</li>
+                        <li class="mdl-menu__item" data-val="position">Position</li>
+                        <li class="mdl-menu__item" data-val="office">Office</li>
+                    </ul>
+                  </div>
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--3-col">
+                    <input type="text" value="" class="mdl-textfield__input" id="opr" readonly>
+                    <input type="hidden" value="" name="opr">
+                    <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                    <label for="opr" class="mdl-textfield__label">Opr</label>
+                    <ul for="opr" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                        <li class="mdl-menu__item" data-val="equal"> = (equal) </li>
+                        <li class="mdl-menu__item" data-val="diff"> != (different)</li>
+                        <li class="mdl-menu__item" data-val="gt"> > (greater than) </li>
+                        <li class="mdl-menu__item" data-val="gte"> >= (greater than or equal)</li>
+                        <li class="mdl-menu__item" data-val="lt"> < (less than)</li>
+                        <li class="mdl-menu__item" data-val="lte"> <= (less than or equal)</li>
+                        <li class="mdl-menu__item" data-val="like"> like </li>
+                        <li class="mdl-menu__item" data-val="notlike"> not like </li>
+                        <li class="mdl-menu__item" data-val="notlike"> in </li>
+                        <li class="mdl-menu__item" data-val="notlike"> not in </li>
+                    </ul>
+                  </div>
+                   <div class="mdl-textfield mdl-js-textfield mdl-cell--5-col">
+                    <input class="mdl-textfield__input" type="text" id="values">
+                    <label class="mdl-textfield__label" for="values">Values</label>
+                  </div>
+                </div>
               </div>
               <!-- AGGREGATION -->
               <div class="mdl-tabs__panel" id="aggregation-panel">
-                <ul>
-                  <li>Viserys</li>
-                  <li>Daenerys</li>
-                </ul>
-              </div>
-              
+                <p></p>
+                <span>Aggregation</span>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                      <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="num-conds">
+                      <label class="mdl-textfield__label" for="num-conds" >Number of aggregation</label>
+                      <span class="mdl-textfield__error">Input is not a number!</span>
+                  </div>
+                 <div class="bi-aggregation__group">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--12-col">
+                        <input type="text" value="" class="mdl-textfield__input" id="agg-method" readonly>
+                        <input type="hidden" value="" name="agg-method">
+                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                        <label for="agg-method" class="mdl-textfield__label">Method</label>
+                        <ul for="agg-method" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                            <li class="mdl-menu__item" data-val="count">Count</li>
+                            <li class="mdl-menu__item" data-val="sum">Sum</li>
+                            <li class="mdl-menu__item" data-val="average">Average</li>
+                            <li class="mdl-menu__item" data-val="min">Min</li>
+                            <li class="mdl-menu__item" data-val="max">Max</li>
+                            <li class="mdl-menu__item" data-val="custom">Custom</li>
+                        </ul>
+                      </div>
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--8-col">
+                        <input type="text" value="" class="mdl-textfield__input" id="agg-field" readonly>
+                        <input type="hidden" value="" name="agg-field">
+                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                        <label for="agg-field" class="mdl-textfield__label">Select field</label>
+                        <ul for="agg-field" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                            <li class="mdl-menu__item" data-val="id">Id</li>
+                            <li class="mdl-menu__item" data-val="name">Name</li>
+                            <li class="mdl-menu__item" data-val="position">Position</li>
+                            <li class="mdl-menu__item" data-val="office">Office</li>
+                        </ul>
+                      </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-cell--5-col">
+                        <input class="mdl-textfield__input" type="text" id="values">
+                        <label class="mdl-textfield__label" for="values">Display name</label>
+                      </div>
+                      
+                      <!-- CUSTOM METHOD -->
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select mdl-cell--12-col">
+                        <input type="text" value="" class="mdl-textfield__input" id="agg-method2" readonly>
+                        <input type="hidden" value="" name="agg-method2">
+                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                        <label for="agg-method2" class="mdl-textfield__label">Method</label>
+                        <ul for="agg-method2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                            <li class="mdl-menu__item" data-val="count">Count</li>
+                            <li class="mdl-menu__item" data-val="sum">Sum</li>
+                            <li class="mdl-menu__item" data-val="average">Average</li>
+                            <li class="mdl-menu__item" data-val="min">Min</li>
+                            <li class="mdl-menu__item" data-val="max">Max</li>
+                            <li class="mdl-menu__item" data-val="custom" data-selected="true">Custom</li>
+                        </ul>
+                      </div>
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label  mdl-cell--12-col">
+                        <textarea class="mdl-textfield__input" type="text" rows= "2" id="raw" ></textarea>
+                        <label class="mdl-textfield__label" for="raw">Raw sql expression</label>
+                      </div>
+                  </div>
+                  <span>Group by</span>
+                  <select class="mdl-textfield mdl-js-textfield  mdl-cell--12-col" multiple>
+                      <option value="name">Name</option>
+                      <option value="position">Position</option>
+                      <option value="office">Office</option>
+                      <option value="age">Age</option>
+                  </select>
+
+                  </div>
             </div>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Fetch data</button>
+            <!-- FOOTER -->
+            <div class="bi-query-footer">
+                <button id='fetch-btn' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="margin-right: 10px">Fetch data</button>
+                <button id='save-btn' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Save</button>
+                <div id="toast-snackbar" class="mdl-js-snackbar mdl-snackbar">
+                  <div class="mdl-snackbar__text"></div>
+                  <button class="mdl-snackbar__action" type="button"></button>
+                </div>
+            </div>
           </div>
         </div>
       </main>

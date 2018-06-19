@@ -158,34 +158,7 @@
         return result;
       };
     };
-    return $.pivotUtilities.plotly_renderers ={ 
-    en:{
-      "Horizontal Bar Chart": makePlotlyChart({
-        type: 'bar',
-        orientation: 'h'
-      }, {
-        barmode: 'group'
-      }, true),
-      "Horizontal Stacked Bar Chart": makePlotlyChart({
-        type: 'bar',
-        orientation: 'h'
-      }, {
-        barmode: 'stack'
-      }, true),
-      "Bar Chart": makePlotlyChart({
-        type: 'bar'
-      }, {
-        barmode: 'group'
-      }),
-      "Stacked Bar Chart": makePlotlyChart({
-        type: 'bar'
-      }, {
-        barmode: 'stack'
-      }),
-      "Line Chart": makePlotlyChart(),
-      "Scatter Chart": makePlotlyScatterChart()
-    },
-    jp:{
+    return $.pivotUtilities.plotly_renderers = {
       "横棒グラフ": makePlotlyChart({
         type: 'bar',
         orientation: 'h'
@@ -210,8 +183,7 @@
       }),
       "折れ線グラフ": makePlotlyChart(),
       "散布図": makePlotlyScatterChart()
-    }
-};
+    };
   });
 
 }).call(this);

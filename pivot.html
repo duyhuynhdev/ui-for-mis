@@ -28,13 +28,36 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./mdl/material.min.css">
     <link rel="stylesheet" href="styles.css">
-   
+      <!-- PLOTLY -->
+      <script src="./plotly/plotly-latest.min.js"></script>
+      <!-- JQUERY -->
+        <script src="./jquery-3.3.1.min.js"></script>
+       <!-- external libs from cdnjs -->
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
+
+        <!-- PivotTable.js libs -->
+        <link rel="stylesheet" type="text/css" href="./pivot/pivot.css">
+        <script type="text/javascript" src="./pivot/pivot.js"></script>
+        <script type="text/javascript" src="./pivot/pivot.jp.js"></script>
+        <script type="text/javascript" src="./pivot/plotly_renderers.js"></script>
+        <script type="text/javascript" src="./pivot/export_renderers.js"></script>
+        <!-- Subtotal.js plugin libs -->
+        <script type="text/javascript" src="./pivot/subtotal/subtotal.js"></script>
+        <link rel="stylesheet" type="text/css" href="./pivot/subtotal/subtotal.css">
+
+        <!-- FILE SAVE -->
+        <script type="text/javascript" src="./FileSaver.min.js"></script>
+        <script type="text/javascript" src="./Blob.js"></script>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Home</span>
+          <span class="mdl-layout-title">Pivot</span>
           <div class="mdl-layout-spacer"></div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
@@ -71,68 +94,26 @@
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-grid demo-content">
-          <div class="mdl-cell mdl-cell--8-col" >
-            <div class="bi-grid mdl-grid">
-				<div class="demo-card-event mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col">
-				  <div class="mdl-card__title mdl-card--expand">
-				    <h4>
-				      <b>Report:</b><br>
-				      Average sale of per shops 2017-2018
-				    </h4>
+        <div class="bi-grid mdl-grid demo-content">
+               <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid " style="min-height: 250px">
+                <div class="mdl-cell mdl-cell--6-col">
+                  <h5>Data upload</h5>
+                    <p align="center" style="line-height: 1.5">
+                        Drop a CSV file on this page or
+                        <label id="filechooser">click here to choose one<input id="csv" type="file" style="display:none"/></label>
+                        <br /><br />
+                        <textarea placeholder="or drag a CSV file here" style="width: 300px;" id="textarea" disabled></textarea>
+                    </p>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+                   <h5>Setting</h5>
+                   <button class="mdl-button mdl-js-button mdl-button--raised" onclick="tableToExcel('pivot-table', 'W3C Example Table')"> Export Excel </button>
+                </div>
+               </div>
+               <div class="bi-pivot mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid " style="min-height: 550px">
+                    <div id="output" style="margin: 10px;"></div>
 
-				  </div>
-				  <div class="mdl-card__actions mdl-card--border">
-				    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-				      6/17/2018 8:01 PM
-				    </a>
-				    <div class="mdl-layout-spacer"></div>
-					 <button id="dataset-1"
-					        class="mdl-button mdl-js-button mdl-button--icon">
-					  <i class="material-icons">more_vert</i>
-					</button>
-					<ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
-					    data-mdl-for="dataset-1">
-					  <li class="mdl-menu__item">View data set</li>
-					  <li class="mdl-menu__item">Create new item</li>
-					  <li class="mdl-menu__item">Delete data set</li>
-					</ul>
-				  </div>
-				</div>
-			</div>
-			
-          </div>
-          <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-            
-            <!-- <div class="demo-separator mdl-cell--1-col"></div> -->
-            <div class="demo-options mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
-            	<div class="mdl-card__title mdl-color--blue-grey-800">
-				         <h2 class="mdl-card__title-text ">References</h2>
-				      </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li>
-                  	<a class="bi-reference-text" href="#">Getting started</a>
-                  </li>
-                  <li>
-                    <a class="bi-reference-text" href="#">How to create new dashboard?</a>
-                  </li>
-                  <li>
-                    <a class="bi-reference-text" href="#">Query using your own operator</a>
-                  </li>
-                  
-                </ul>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-                <a href="#" class="bi-button mdl-button mdl-js-button mdl-js-ripple-effect">Read more</a>
-                <div class="mdl-layout-spacer"></div>
-                <i id='contact' class="bi-icons material-icons ">email</i>
-        				<div class="mdl-tooltip mdl-tooltip--left " for="contact">
-        					Email us for a support
-        				</div>
-              </div>
-            </div>
-          </div>
+               </div>
         </div>
       </main>
     </div>
@@ -145,5 +126,33 @@
 					Add new data set
 	  </div>
     <script src="./mdl/material.min.js"></script>
+    <script src="./pivot.js"></script>
+    <script>
+      function SaveAsFile(t,f,m) {
+            try {
+                var b = new Blob([t],{type:m});
+                saveAs(b, f);
+            } catch (e) {
+                window.open("data:"+m+"," + encodeURIComponent(t), '_blank','');
+            }
+        }
+
+
+      // SaveAsFile("1,2,3","filename.pdf","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64");
+
+        
+      var tableToExcel = (function() {            
+          var uri = 'data:application/vnd.ms-excel;base64,'
+            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+            , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+            , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+          return function(table, name) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+            window.location.href = uri + base64(format(template, ctx))
+          }
+        })()
+
+</script>
   </body>
 </html>

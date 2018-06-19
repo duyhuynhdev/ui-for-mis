@@ -44,3 +44,24 @@ $(document).ready(function() {
 	}).container().appendTo($('#export-menu'));
 } );
 
+//TOAST SNACK BAR
+
+(function() {
+  'use strict';
+  var snackbarContainer = document.querySelector('#toast-snackbar');
+  var fetchButton = document.querySelector('#fetch-btn');
+  var saveButton = document.querySelector('#save-btn');
+  fetchButton.addEventListener('click', function() {
+    'use strict';
+    var data = {message: 'Fetch data complete '};
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  });
+  saveButton.addEventListener('click', function() {
+    'use strict';
+    var data = {message: 'Save data complete '};
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  });
+}());
+
+
+

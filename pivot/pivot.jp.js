@@ -12,26 +12,26 @@
   };
 
   callWithJQuery(function($) {
-    var jaFmtInt, jaFmtPct, jpFmt, nf, tpl;
+    var jpFmtInt, jpFmtPct, jpFmt, nf, tpl;
     nf = $.pivotUtilities.numberFormat;
     tpl = $.pivotUtilities.aggregatorTemplates;
     jpFmt = nf({
       thousandsSep: ",",
       decimalSep: "."
     });
-    jaFmtInt = nf({
+    jpFmtInt = nf({
       digitsAfterDecimal: 0,
       thousandsSep: ",",
       decimalSep: "."
     });
-    jaFmtPct = nf({
+    jpFmtPct = nf({
       digitsAfterDecimal: 1,
       scaler: 100,
       suffix: "%",
       thousandsSep: ",",
       decimalSep: "."
     });
-    return $.pivotUtilities.locales.ja = {
+    return $.pivotUtilities.locales.jp = {
       localeStrings: {
         renderError: "描画処理でエラーが発生しました。",
         computeError: "処理中にエラーが発生しました。",
